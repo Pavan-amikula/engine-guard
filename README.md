@@ -8,6 +8,10 @@ It estimates intake manifold pressure from six other engine signals, then monito
 
 ## See it working
 
+![Air-path observatory dashboard](media/dashboard.png)
+
+The signal desk pairs synchronized pressure/residual plots with a recording library, clickable fault observations, trace inspection, channel toggles, and a full-recording timeline. A separate **Model evidence** view exposes the held-out accuracy and deployment profile. [Design references and interaction details](docs/DASHBOARD_DESIGN.md).
+
 ![EngineGuard recorded fault demonstration](media/demo.gif)
 
 **[Watch the 36-second MP4 demonstration](media/demo.mp4)** · [Measured results](reports/RESULTS.md) · [Research and sources](docs/RESEARCH.md) · [Model-based integration](integration/README.md)
