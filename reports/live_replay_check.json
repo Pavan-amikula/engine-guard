@@ -1,0 +1,10 @@
+{
+  "command": "python src/live_replay.py --start 143 --duration 2",
+  "paced_samples": 40,
+  "recording_hz": 20,
+  "elapsed_s": 1.9515508000004047,
+  "max_host_wakeup_lateness_ms": 0.9168165988739929,
+  "mean_ipc_and_inference_ms": 0.30775999998695625,
+  "observed_alarm_transition": "alarm 0 near recording time 143.01 s; alarm 1 near 144.01 s",
+  "scope": "Windows desktop, persistent host C subprocess, warmup from recording start. Short functional check; not worst-case timing or ECU deadline validation."
+}

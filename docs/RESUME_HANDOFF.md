@@ -18,6 +18,8 @@ Created a 50 ms integration contract, a Simulink C Caller harness-generation scr
 
 Built a local Python/HTML/JavaScript dashboard that runs compiled C over nominal and sensor-fault recordings and supports replay, seek, speed controls and diagnostic-state visualization. Produced a captioned 36-second MP4, animated GIF, validation plots, per-fault metrics, dataset/source SHA-256 manifests and a GitHub Actions reproduction workflow. Related research and dataset attribution remain in the repository.
 
+Also implemented a desktop paced replay runner that sends one recorded sample at a time to a persistent C process at the original 20 Hz rate, with state warmup and measured scheduling lateness. A short 40-sample functional check observed the pressure-disagreement alarm transition during the recorded fault window; mean IPC-plus-inference round-trip was 0.308 ms on this host. This is soft real-time recorded-data execution, not a physical ECU experiment or a worst-case deadline guarantee.
+
 ## Resume bullets
 
 - Developed a physics-guided engine manifold-pressure virtual sensor using real 20 Hz test-bench data; achieved **2.10 kPa held-out RMSE** and **65.6% lower error** than a speed-density baseline using whole-recording validation.

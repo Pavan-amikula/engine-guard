@@ -69,6 +69,14 @@ python src/make_demo.py
 python src/serve.py
 ```
 
+To execute C inference **one sample at a time at the original 20 Hz rate**, run this in a separate terminal after downloading data and building the model:
+
+```bash
+python src/live_replay.py --start 120 --duration 40
+```
+
+This warms the C state using preceding samples, then paces the fault window in wall-clock time and prints pressure/alarm outputs. It reports host wake-up lateness and inference-plus-IPC round-trip time. These are desktop soft real-time measurements, not guaranteed engine-controller deadlines.
+
 Open **http://127.0.0.1:8765**. Keep the terminal running; Ctrl+C stops the server. The server binds only to loopback. Its API invokes the C replay executable, then caches the resulting recorded trace for playback. It does not stream a physical engine or retrain during playback.
 
 The data download is about 61 MB. Training three small networks typically takes minutes on a desktop. Each candidate uses a fixed 180-epoch budget; convergence warnings are retained, and an optimal solution is not claimed. For repeatable single-threaded training, set `OPENBLAS_NUM_THREADS=1` before starting Python. Minor numerical and timing differences across platforms are expected.

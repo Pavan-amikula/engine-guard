@@ -36,6 +36,7 @@ int main(int argc,char **argv){
     while((n=scanf("%f %f %f %f %f %f %f",&u[0],&u[1],&u[2],&u[3],&u[4],&u[5],&p))==7){
         o=eg_step(&state,u,p);
         printf("%.8g %.8g %u %u\n",o.pressure_pa,o.residual_pa,o.status,o.alarm);
+        fflush(stdout); /* Also support the paced, one-sample-at-a-time host runner. */
     }
     return n==EOF?0:2;
 }
