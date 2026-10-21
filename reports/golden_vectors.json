@@ -1,0 +1,31 @@
+{
+  "description": "Synthetic steady feature vector; call eg_init before eg_step. eg_predict uses the same features directly.",
+  "input": [
+    0.01,
+    150,
+    105000,
+    10,
+    300,
+    0.5
+  ],
+  "features": [
+    0.01,
+    150,
+    105000,
+    10,
+    300,
+    0.5,
+    0.01,
+    150,
+    105000,
+    10,
+    300,
+    0.5,
+    0.02
+  ],
+  "measured_pressure_pa": 50000,
+  "expected_pressure_pa": 65714.133,
+  "pressure_tolerance_pa": 2.0,
+  "expected_status": 0,
+  "expected_alarm": 0
+}

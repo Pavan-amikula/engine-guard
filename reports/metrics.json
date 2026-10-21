@@ -1,0 +1,302 @@
+{
+  "dataset": "LiU-ICE public training archive; project-defined whole-recording split",
+  "rows": {
+    "train": 36068,
+    "validation": 36183,
+    "test": 17423
+  },
+  "seed": 42,
+  "selected_hidden": [
+    24,
+    12
+  ],
+  "candidates_validation": [
+    {
+      "hidden": [
+        16,
+        8
+      ],
+      "iterations": 180,
+      "mae_kpa": 3.75387011056299,
+      "rmse_kpa": 4.511397066068627,
+      "p95_abs_error_kpa": 8.022713077355876,
+      "r2": 0.9692847219857513
+    },
+    {
+      "hidden": [
+        24,
+        12
+      ],
+      "iterations": 180,
+      "mae_kpa": 2.563070783598606,
+      "rmse_kpa": 3.111557011845622,
+      "p95_abs_error_kpa": 5.616672993519913,
+      "r2": 0.9853887332105483
+    },
+    {
+      "hidden": [
+        32,
+        16
+      ],
+      "iterations": 180,
+      "mae_kpa": 3.1661602009421483,
+      "rmse_kpa": 3.694756579529328,
+      "p95_abs_error_kpa": 6.2412258863327486,
+      "r2": 0.9793982549950925
+    }
+  ],
+  "test": {
+    "speed_density": {
+      "mae_kpa": 4.937479171313607,
+      "rmse_kpa": 6.109453011043873,
+      "p95_abs_error_kpa": 12.422596003804834,
+      "r2": 0.8623169380858285
+    },
+    "ridge": {
+      "mae_kpa": 4.038853319879752,
+      "rmse_kpa": 5.381429605561936,
+      "p95_abs_error_kpa": 10.303583638417198,
+      "r2": 0.8931754221843774
+    },
+    "float_mlp": {
+      "mae_kpa": 1.4862200997059398,
+      "rmse_kpa": 2.0999593748737766,
+      "p95_abs_error_kpa": 4.0379501720204924,
+      "r2": 0.9837333679149953
+    },
+    "int16_storage_mlp": {
+      "mae_kpa": 1.4858620181872744,
+      "rmse_kpa": 2.099688153073899,
+      "p95_abs_error_kpa": 4.037184230215849,
+      "r2": 0.983737569501346
+    },
+    "deployed_guarded_c": {
+      "mae_kpa": 1.485868145039703,
+      "rmse_kpa": 2.0996918910013074,
+      "p95_abs_error_kpa": 4.037195130346677,
+      "r2": 0.9837375115995679
+    }
+  },
+  "deployment": {
+    "parameter_bytes_int16": 1372,
+    "parameter_bytes_float32": 2596,
+    "normalization_bounds_bytes": 152,
+    "c_python_max_abs_diff_pa_in_domain": 0.09438070935721043,
+    "quantization_max_abs_diff_pa": 3.9144489852915285,
+    "nominal_ood_fraction": 0.0,
+    "nominal_alarm_fraction_after_10s": 0.0,
+    "alarm_threshold_pa": 6385.832761077133,
+    "benchmark_runs": [
+      {
+        "calls": 1000000,
+        "elapsed_s": 1.158,
+        "mean_us": 1.158,
+        "state_bytes": 36
+      },
+      {
+        "calls": 1000000,
+        "elapsed_s": 1.149,
+        "mean_us": 1.149,
+        "state_bytes": 36
+      },
+      {
+        "calls": 1000000,
+        "elapsed_s": 1.128,
+        "mean_us": 1.128,
+        "state_bytes": 36
+      },
+      {
+        "calls": 1000000,
+        "elapsed_s": 1.117,
+        "mean_us": 1.117,
+        "state_bytes": 36
+      },
+      {
+        "calls": 1000000,
+        "elapsed_s": 1.125,
+        "mean_us": 1.125,
+        "state_bytes": 36
+      }
+    ],
+    "benchmark_note": "Host clock() batch mean including monitor; not WCET or ECU timing.",
+    "compiler": "gcc.exe (MinGW.org GCC-6.3.0-1) 6.3.0",
+    "host": "Windows-11-10.0.26300-SP0",
+    "python": "3.13.4",
+    "processor": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel"
+  },
+  "checks": {
+    "c_python_parity": true,
+    "sustained_bias_alarm": true,
+    "nominal_no_alarm_unit_case": true,
+    "nan_input_rejected": true,
+    "zero_speed_rejected": true,
+    "ood_fallback": true,
+    "nan_sensor_rejected": true,
+    "ood_history_recovery": true,
+    "monitor_reset": true
+  },
+  "fault_runs": [
+    {
+      "file": "ftp75city2_f_pic_085.csv",
+      "fault_onset_s": 127.9,
+      "post_fault_alarm_fraction": 0.9885019052075673,
+      "pre_fault_alarm_fraction": 0.0,
+      "first_alarm_delay_s": 1.0562778483139823,
+      "ood_fraction": 0.0
+    },
+    {
+      "file": "ftp75city2_f_pic_090.csv",
+      "fault_onset_s": 128.05,
+      "post_fault_alarm_fraction": 0.9330877427997321,
+      "pre_fault_alarm_fraction": 0.0,
+      "first_alarm_delay_s": 1.0567907646159824,
+      "ood_fraction": 0.0
+    },
+    {
+      "file": "ftp75city2_f_pic_095.csv",
+      "fault_onset_s": 127.35,
+      "post_fault_alarm_fraction": 0.10383897627299386,
+      "pre_fault_alarm_fraction": 0.0,
+      "first_alarm_delay_s": 3.906374812079008,
+      "ood_fraction": 0.0
+    },
+    {
+      "file": "ftp75city2_f_pic_105.csv",
+      "fault_onset_s": 122.7,
+      "post_fault_alarm_fraction": 0.34284571276170156,
+      "pre_fault_alarm_fraction": 0.0,
+      "first_alarm_delay_s": 5.456108965931989,
+      "ood_fraction": 0.0
+    },
+    {
+      "file": "ftp75city2_f_pic_110.csv",
+      "fault_onset_s": 122.35,
+      "post_fault_alarm_fraction": 0.5751917305768589,
+      "pre_fault_alarm_fraction": 0.0,
+      "first_alarm_delay_s": 25.95772578702102,
+      "ood_fraction": 0.0
+    },
+    {
+      "file": "ftp75city2_f_pic_115.csv",
+      "fault_onset_s": 123.9,
+      "post_fault_alarm_fraction": 0.5848882442144129,
+      "pre_fault_alarm_fraction": 0.0,
+      "first_alarm_delay_s": 24.057979453091008,
+      "ood_fraction": 0.0
+    },
+    {
+      "file": "ftp75city2_f_pim_085.csv",
+      "fault_onset_s": 122.85,
+      "post_fault_alarm_fraction": 0.22412301138254676,
+      "pre_fault_alarm_fraction": 0.0,
+      "first_alarm_delay_s": 21.208264798223013,
+      "ood_fraction": 0.0,
+      "corrected_reference_mae_kpa": 1.33585591350766,
+      "sensor_bias_mae_kpa": 5.203787163474392
+    },
+    {
+      "file": "ftp75city2_f_pim_090.csv",
+      "fault_onset_s": 123.3,
+      "post_fault_alarm_fraction": 0.0710375305059033,
+      "pre_fault_alarm_fraction": 0.0,
+      "first_alarm_delay_s": 23.757406638999996,
+      "ood_fraction": 0.0,
+      "corrected_reference_mae_kpa": 1.2869404987217692,
+      "sensor_bias_mae_kpa": 3.4526134600530054
+    },
+    {
+      "file": "ftp75city2_f_pim_095.csv",
+      "fault_onset_s": 122.6,
+      "post_fault_alarm_fraction": 0.0,
+      "pre_fault_alarm_fraction": 0.0,
+      "first_alarm_delay_s": null,
+      "ood_fraction": 0.0,
+      "corrected_reference_mae_kpa": 1.3123447392821779,
+      "sensor_bias_mae_kpa": 1.7222370877092266
+    },
+    {
+      "file": "ftp75city2_f_pim_105.csv",
+      "fault_onset_s": 131.75,
+      "post_fault_alarm_fraction": 0.0006021275172275373,
+      "pre_fault_alarm_fraction": 0.0,
+      "first_alarm_delay_s": 140.81244186891303,
+      "ood_fraction": 0.0,
+      "corrected_reference_mae_kpa": 1.6861807884002993,
+      "sensor_bias_mae_kpa": 1.6997361565882547
+    },
+    {
+      "file": "ftp75city2_f_pim_110.csv",
+      "fault_onset_s": 123.0,
+      "post_fault_alarm_fraction": 0.035754786205056364,
+      "pre_fault_alarm_fraction": 0.0,
+      "first_alarm_delay_s": 23.157560945971,
+      "ood_fraction": 0.0,
+      "corrected_reference_mae_kpa": 1.4304397406510345,
+      "sensor_bias_mae_kpa": 3.4021080340562206
+    },
+    {
+      "file": "ftp75city2_f_pim_115.csv",
+      "fault_onset_s": 122.75,
+      "post_fault_alarm_fraction": 0.14886153031506486,
+      "pre_fault_alarm_fraction": 0.0,
+      "first_alarm_delay_s": 21.20788521466099,
+      "ood_fraction": 0.0,
+      "corrected_reference_mae_kpa": 1.39611759488064,
+      "sensor_bias_mae_kpa": 5.165413867539287
+    },
+    {
+      "file": "ftp75city2_f_waf_085.csv",
+      "fault_onset_s": 124.15,
+      "post_fault_alarm_fraction": 0.005129913391072619,
+      "pre_fault_alarm_fraction": 0.0017520805957074025,
+      "first_alarm_delay_s": 78.10977804436598,
+      "ood_fraction": 0.0
+    },
+    {
+      "file": "ftp75city2_f_waf_090.csv",
+      "fault_onset_s": 125.05,
+      "post_fault_alarm_fraction": 0.004272363150867824,
+      "pre_fault_alarm_fraction": 0.0,
+      "first_alarm_delay_s": 67.710525428747,
+      "ood_fraction": 0.0
+    },
+    {
+      "file": "ftp75city2_f_waf_095.csv",
+      "fault_onset_s": 122.5,
+      "post_fault_alarm_fraction": 0.0032017075773745998,
+      "pre_fault_alarm_fraction": 0.0,
+      "first_alarm_delay_s": 143.01526904463702,
+      "ood_fraction": 0.0
+    },
+    {
+      "file": "ftp75city2_f_waf_105.csv",
+      "fault_onset_s": 122.9,
+      "post_fault_alarm_fraction": 0.0005280179526103888,
+      "pre_fault_alarm_fraction": 0.0,
+      "first_alarm_delay_s": 143.265644477603,
+      "ood_fraction": 0.0
+    },
+    {
+      "file": "ftp75city2_f_waf_110.csv",
+      "fault_onset_s": 122.45,
+      "post_fault_alarm_fraction": 6.623832549513148e-05,
+      "pre_fault_alarm_fraction": 0.0,
+      "first_alarm_delay_s": 35.409150062657986,
+      "ood_fraction": 0.0
+    },
+    {
+      "file": "ftp75city2_f_waf_115.csv",
+      "fault_onset_s": 122.7,
+      "post_fault_alarm_fraction": 0.0021891999469284863,
+      "pre_fault_alarm_fraction": 0.0,
+      "first_alarm_delay_s": 35.609335926967006,
+      "ood_fraction": 0.0
+    }
+  ],
+  "source_sha256": {
+    "embedded/engine_guard.c": "087088361dfefbb2ee5630f86efe1159f27b5b2463aa4eb947834766bb50a45e",
+    "embedded/engine_guard.h": "2670927010a07ae39bc3075e92f5550707e75fc6796217b0f4f185ec32ac0145",
+    "embedded/model_data.h": "c857797ffc902f48777297a351a1d7093eb67742b379a12962c0f3de294e6f75",
+    "models/model.npz": "6367c9a290e4360d907be551b71044ebf1be4d08cd9fcf455645890dfdf3c841"
+  }
+}

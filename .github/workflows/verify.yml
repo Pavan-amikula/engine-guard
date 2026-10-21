@@ -1,0 +1,20 @@
+name: Reproduce engine virtual sensor
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: pip install -r requirements-lock.txt
+      - run: python src/verify.py
+      - run: python src/data.py
+      - run: OPENBLAS_NUM_THREADS=1 python src/pipeline.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: evaluation-evidence
+          path: |
+            reports/
+            media/*.png

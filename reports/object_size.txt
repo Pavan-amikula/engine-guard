@@ -1,0 +1,2 @@
+   text	   data	    bss	    dec	    hex	filename
+   3412	      0	      0	   3412	    d54	build/engine_guard.o

@@ -1,0 +1,2 @@
+Host MinGW GCC did not emit stack-usage files. Total target stack/RAM measurement remains pending.
+Known caller state: 36 bytes on this host ABI. Inference activation arrays: (24+12)*4 = 144 bytes before compiler optimization; this is not a measured stack high-water mark.
