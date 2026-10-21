@@ -1,2 +1,6 @@
-Host MinGW GCC did not emit stack-usage files. Total target stack/RAM measurement remains pending.
-Known caller state: 36 bytes on this host ABI. Inference activation arrays: (24+12)*4 = 144 bytes before compiler optimization; this is not a measured stack high-water mark.
+Current inference object, host MinGW GCC 6.3.0 -O2 -fstack-usage:
+engine_guard.c:6:6:eg_init	8	static
+engine_guard.c:7:7:eg_predict	224	static
+engine_guard.c:24:10:eg_step	128	static
+
+Bytes are compiler per-function static estimates, not a measured high-water mark. Calls such as eg_step -> eg_predict require nested-call accounting; target ABI, interrupts and library stack use remain unmeasured.

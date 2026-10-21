@@ -296,7 +296,7 @@
   "source_sha256": {
     "embedded/engine_guard.c": "087088361dfefbb2ee5630f86efe1159f27b5b2463aa4eb947834766bb50a45e",
     "embedded/engine_guard.h": "2670927010a07ae39bc3075e92f5550707e75fc6796217b0f4f185ec32ac0145",
-    "embedded/model_data.h": "c857797ffc902f48777297a351a1d7093eb67742b379a12962c0f3de294e6f75",
+    "embedded/model_data.h": "97b636146c95ff97f812f7b3a6c261ed1c89ed9732f0c96ea075fa0b6c141397",
     "models/model.npz": "6367c9a290e4360d907be551b71044ebf1be4d08cd9fcf455645890dfdf3c841"
   }
 }

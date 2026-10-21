@@ -1,3 +1,0 @@
-engine_guard.c:6:6:eg_init	8	static
-engine_guard.c:7:7:eg_predict	224	static
-engine_guard.c:24:10:eg_step	128	static

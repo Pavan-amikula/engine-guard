@@ -27,7 +27,7 @@ Training: {m['rows']['train']:,} samples from `wltp_NF.csv`. Validation: {m['row
 - Parameters: 1,372 bytes with int16 weights + float32 biases versus 2,596 bytes with float32 weights + biases (**47.1% lower parameter storage**).
 - Normalization + envelope arrays: another 152 bytes; scales/physical baseline/monitor scalar constants and executable code are additional.
 - Host compiled object: {object_bytes:,} bytes text/read-only section; no static mutable data/BSS in that object. This is not a linked target flash figure.
-- Caller state: 36 bytes on the host ABI. Activation arrays use 144 nominal bytes; full stack usage is not measured by this compiler. See `stack_usage.txt`.
+- Caller state: 36 bytes on the host ABI. Activation arrays use 144 nominal bytes; compiler per-function static stack estimates are in `stack_usage.txt`. These estimates are not a measured stack high-water mark or complete nested-call/target stack budget.
 - Five batches of 1,000,000 C estimator + monitor calls: median batch mean **{bench:.3f} μs/call** on {m['deployment']['host']}, {m['deployment']['processor']}, {m['deployment']['compiler']}, `-O2`. The published Windows run used a 32-bit executable. Timing excludes CSV I/O. This is neither per-call p99 nor WCET, and does not establish ECU schedulability.
 - C versus Python quantized inference: maximum absolute difference **{m['deployment']['c_python_max_abs_diff_pa_in_domain']:.4f} Pa** over valid nominal test inputs.
 - Quantized versus original float inference: maximum absolute difference **{m['deployment']['quantization_max_abs_diff_pa']:.3f} Pa**. Inference arithmetic remains floating point.

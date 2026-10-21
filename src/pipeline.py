@@ -36,7 +36,7 @@ def export(model,scaler,ym,ys,pa,pb,lo,hi,threshold):
         text+=f'#define {key} ({float(val):.9e}f)\n'
     for key,val in [('XM',scaler.mean_),('XS',scaler.scale_),('LO',lo),('HI',hi)]:text+=array(key,val)
     for i in range(3):text+=array(f'W{i+1}',weights[i],'int16_t')+array(f'B{i+1}',model.intercepts_[i])
-    text+='#endif\n';(ROOT/'embedded/model_data.h').write_text(text)
+    text+='#endif\n';(ROOT/'embedded/model_data.h').write_text(text,encoding='utf8',newline='\n')
     np.savez(MODEL/'model.npz',**{f'w{i}':weights[i] for i in range(3)},
              **{f'b{i}':model.intercepts_[i] for i in range(3)},scales=scales,
              mean=scaler.mean_,scale=scaler.scale_,ym=ym,ys=ys,physics=[pa,pb],lo=lo,hi=hi,
@@ -137,7 +137,8 @@ def main():
     bench=[json.loads(subprocess.check_output([str(BUILD/'replay'),'--benchmark'],text=True)) for _ in range(5)]
     size=subprocess.check_output(['size','build/engine_guard.o'],cwd=ROOT,text=True)
     (REPORT/'object_size.txt').write_text(size)
-    stack='\n'.join(p.read_text() for p in BUILD.glob('*.su'))
+    stack='\n'.join(p.read_text() for p in [*BUILD.glob('*.su'),*ROOT.glob('*.su')])
+    stack+='\nCompiler per-function static estimates; not a measured stack high-water mark. Nested calls and target ABI must be accounted for separately.\n'
     (REPORT/'stack_usage.txt').write_text(stack or 'This host compiler did not emit stack-usage files. Target stack measurement remains pending.\n')
     result={'dataset':'LiU-ICE public training archive; project-defined whole-recording split',
             'rows':{'train':len(train),'validation':len(val),'test':len(test)},
